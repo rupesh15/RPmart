@@ -1,22 +1,19 @@
 import React, {useState } from 'react';
 import styles from './loginScreen.module.scss';
-import { handleApi } from '../network';
+import { useAppSelector, useAppDispatch } from '../hook';
+import { loginUser } from '../network/loginauth';
 
 const LoginScreen: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useAppDispatch();
+    const { loading, error } = useAppSelector((state) => state.loginauth);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Email:', email);
-        console.log('Password:', password);
-        const data = {
-            email,
-            password,
-        };
-        handleApi('http://localhost:3000/api/v1/users/login', 'post', data);
-        // setEmail('');
-        // setPassword('');
+        dispatch(loginUser( email, password)) 
+        setEmail('');
+        setPassword('');
     };
 
     return (
@@ -50,10 +47,13 @@ const LoginScreen: React.FC = () => {
                             required
                         />
                     </div>
-                    <button className={styles.button} type="submit">
-                        Sign-In
+                    <button className={styles.button} type="submit" disabled={loading}>
+                        {loading ? 'Loading...' : 'Sign In'}
                     </button>
                 </form>
+                <div className={styles.error}>
+                    {error && <p className={styles.errorMessage}>{error}</p>}
+                </div>
                 <p className={styles.footerText}>
                     New to RPMart? <a href="/signup" className={styles.link}>Create your RPMart account</a>
                 </p>
