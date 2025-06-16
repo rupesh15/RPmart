@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // Default is localStorage
 import { combineReducers } from 'redux';
+import loginauth from './reducer/loginauth';
+import signup from './reducer/signup';
 
 // Example slice
 import counterReducer from './reducer/index';
@@ -9,6 +11,8 @@ import counterReducer from './reducer/index';
 // Combine reducers
 const rootReducer = combineReducers({
   counter: counterReducer,
+  loginauth,
+  signup
 });
 
 // Persist configuration
