@@ -17,11 +17,12 @@ export const signup = (name: string, email: string, password: string, passwordCo
     if (!response.ok) {
       throw new Error("Failed to login");
     }
-
+     
     const data = await response.json();
-    console.log("Login successful:", data);
-    dispatch(loginSuccess(data)); // Dispatch success action with user data
+    alert("Signup successful! Please login now.");
+    
+    dispatch(loginSuccess(data)); 
   } catch (error: any) {
-    dispatch(loginFailure(error.message)); // Dispatch failure action with error message
+    dispatch(loginFailure(error.message));
   }
 };
