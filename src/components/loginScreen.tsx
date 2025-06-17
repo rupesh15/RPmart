@@ -2,18 +2,22 @@ import React, {useState } from 'react';
 import styles from './loginScreen.module.scss';
 import { useAppSelector, useAppDispatch } from '../hook';
 import { loginUser } from '../network/loginauth';
+import { useNavigate } from 'react-router-dom';
 
 const LoginScreen: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useAppDispatch();
-    const { loading, error } = useAppSelector((state) => state.loginauth);
+    const { loading, error, user } = useAppSelector((state) => state.loginauth);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         dispatch(loginUser( email, password)) 
         setEmail('');
         setPassword('');
+        user?.status === 'success' && navigate("/landingpage");
+        
     };
 
     return (
