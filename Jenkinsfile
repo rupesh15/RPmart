@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/rupesh15/RPmart.git'
+                git branch: 'main', url:'https://github.com/rupesh15/RPmart.git'
             }
         }
 
