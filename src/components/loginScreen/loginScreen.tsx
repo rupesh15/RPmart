@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import styles from './loginScreen.module.scss';
-import { useAppSelector, useAppDispatch } from '../hook';
-import { loginUser } from '../network/loginauth';
+import { useAppSelector, useAppDispatch } from '../../hook';
+import { loginUser } from '../../network/loginauth';
 import { useNavigate } from 'react-router-dom';
 
 const LoginScreen: React.FC = () => {

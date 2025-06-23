@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "./loginScreen.module.scss";
-import { useAppSelector, useAppDispatch } from "../hook";
-import { signup } from "../network/signup";
+import styles from "./index.module.scss";
+import { useAppSelector, useAppDispatch } from "../../hook";
+import { signup } from "../../network/signup";
 import { useNavigate } from "react-router-dom";
 
 const SignupScreen: React.FC = () => {

@@ -15,9 +15,8 @@ const LandingScreen: React.FC = () => {
      }, [logout]);
 
      useEffect(() => {
-        dispatch(getProducts());
+      dispatch(getProducts());
      },[]);
-
 
     return (
         <div style={{ textAlign: "center", padding: "50px" }}>
