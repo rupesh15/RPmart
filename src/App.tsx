@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import LoginScreen from './components/loginScreen.tsx';
-import SignupScreen from './components/signUp.tsx';
+import LoginScreen from './components/loginScreen/loginScreen.tsx';
+import SignupScreen from './components/signupScreen/signUp.tsx';
 import LandingScreen from './components/landingScreen.tsx';
 
 function App() {

@@ -5,12 +5,8 @@ import { combineReducers } from 'redux';
 import loginauth from './reducer/loginauth';
 import signup from './reducer/signup';
 
-// Example slice
-import counterReducer from './reducer/index';
-
 // Combine reducers
 const rootReducer = combineReducers({
-  counter: counterReducer,
   loginauth,
   signup
 });
